@@ -1,0 +1,6 @@
+{
+  "name": "Field Shift — Moquegua",
+  "description": "Plataforma agrícola inteligente para los valles de Moquegua impulsada por datos satelitales reales de NASA POWER y NASA GIBS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

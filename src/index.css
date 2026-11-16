@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@layer base {
+  :root {
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+    --fs-canvas: #FAF8F4;
+    --fs-surface: #FFFFFF;
+    --fs-surface-muted: #F2EFE9;
+    --fs-border: #E2DDD2;
+    --fs-border-strong: #C9C2B4;
+    --fs-ink: #182B22;
+    --fs-ink-muted: #51635A;
+    --fs-accent: #1B4332;
+    --fs-accent-hover: #143326;
+    --fs-accent-soft: #E7EFEA;
+  }
+
+  /* Modo Sol: alto contraste diseñado para lectura bajo radiación solar directa en campo */
+  html.sun-mode {
+    --fs-canvas: #FFFFFF;
+    --fs-surface: #FFFFFF;
+    --fs-surface-muted: #F4F4F5;
+    --fs-border: #18181B;
+    --fs-border-strong: #09090B;
+    --fs-ink: #000000;
+    --fs-ink-muted: #18181B;
+    --fs-accent: #0F3325;
+    --fs-accent-hover: #071F16;
+    --fs-accent-soft: #E4EDE8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: var(--fs-canvas);
+    color: var(--fs-ink);
+  }
+
+  body {
+    background-color: var(--fs-canvas);
+    color: var(--fs-ink);
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 150ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--fs-accent);
+    outline-offset: 2px;
+  }
+}
+
+/* Contención limpia de Leaflet sin afectar capas ni controles internos */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: #E7E3D8;
+  z-index: 1;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 10px;
+  border: 1px solid var(--fs-border);
+  box-shadow: 0 6px 18px rgba(24, 43, 34, 0.12);
+}
+
+.leaflet-tooltip {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12px;
+  border-radius: 6px;
+  border: 1px solid #C9C2B4;
+  color: #182B22;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
